@@ -41,7 +41,7 @@ public static  WebDriver driver;
     }
     @BeforeMethod
     @Parameters("browser")
-    public void beforeMethodMethod(String browser, Method testMethod)
+    public void beforeMethodMethod(@Optional("chrome")String browser, Method testMethod)
     {
         logger=extentReports.createTest(testMethod.getName());
         setupDriver(browser);
