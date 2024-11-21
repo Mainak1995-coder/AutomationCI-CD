@@ -8,7 +8,7 @@ public class SignUpPageEvents {
     public void enterEmailCheckBoxClick()
     {
         ele.getWebElement("NAME", SignUpPageElements.emailAddress).sendKeys("abc@gmail.com");
-        ele.getWebElement("ID",SignUpPageElements.terms).click();
-        ele.getWebElement("CSS",SignUpPageElements.reCaptcha).click();
+        ele.getWebElement("NAME",SignUpPageElements.terms).click();
+        //ele.getWebElement("XPATH",SignUpPageElements.reCaptcha).click();
     }
 }

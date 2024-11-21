@@ -9,4 +9,8 @@ public class HomePageEvents {
     {
         ele.getWebElement("XPATH", HomePageElements.startHereButtonText).click();
     }
+    public void signUpButton()
+    {
+        ele.getWebElement("XPATH", HomePageElements.signUpButtonText).click();
+    }
 }
