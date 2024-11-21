@@ -20,30 +20,13 @@ import java.lang.reflect.Method;
 import java.time.Duration;
 
 public class BaseTest {
-    ExtentReports extentReports;
-    ExtentSparkReporter extentSparkReporter;
-public static  WebDriver driver;
+    public static  WebDriver driver;
     WebDriverWait wait;
-    ExtentTest logger;
-    ITestResult result;
-    @BeforeTest
-    public void beforeTestMethod()
-    {
-        extentSparkReporter  = new ExtentSparkReporter(System.getProperty("user.dir") + "/test-output/extentReport.html");
-        extentReports = new ExtentReports();
-        extentReports.attachReporter(extentSparkReporter);
-        //configuration items to change the look and feel
-        //add content, manage tests etc
-        extentSparkReporter.config().setDocumentTitle("Simple Automation Report");
-        extentSparkReporter.config().setReportName("Free CRM Project");
-        extentSparkReporter.config().setTheme(Theme.STANDARD);
-        extentReports.setSystemInfo("Tester","Mainak Kundu");
-    }
+
     @BeforeMethod
     @Parameters("browser")
-    public void beforeMethodMethod(@Optional("chrome")String browser, Method testMethod)
+    public void browserInvoke(String browser)
     {
-        logger=extentReports.createTest(testMethod.getName());
         setupDriver(browser);
         driver.manage().window().maximize();
         driver.get(Constants.url);
@@ -52,29 +35,11 @@ public static  WebDriver driver;
 
     }
     @AfterMethod
-    public void afterMethod()
+    public void tearDown()
     {
-        result= Reporter.getCurrentTestResult();
-        switch (result.getStatus())
-        {
-            case ITestResult.SUCCESS:
-                System.out.println("---PASS---");
-                break;
-            case ITestResult.FAILURE:
-                System.out.println("---FAIL---");
-                break;
-            case ITestResult.SKIP:
-                System.out.println("---SKIP---");
-                break;
-
-        }
         driver.quit();
     }
-    @AfterTest
-    public void afterTest()
-    {
-        extentReports.flush();
-    }
+
     public void setupDriver(String browser){
         if (browser.equalsIgnoreCase("chrome"))
         {
