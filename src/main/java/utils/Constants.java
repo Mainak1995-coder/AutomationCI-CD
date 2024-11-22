@@ -1,5 +1,5 @@
 package utils;
 
 public interface Constants {
-    String url="https://freecrm.com/";
+    String url="https://rahulshettyacademy.com/client/";
 }

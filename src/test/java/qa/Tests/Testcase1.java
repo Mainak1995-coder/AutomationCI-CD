@@ -1,6 +1,7 @@
 package qa.Tests;
 
 import base.BaseTest;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pageEvents.HomePageEvents;
@@ -10,14 +11,11 @@ import utils.ElementFetch;
 
 public class Testcase1 extends BaseTest {
     ElementFetch ele=new ElementFetch();
-    HomePageEvents home=new HomePageEvents();
-    LoginPageEvents login=new LoginPageEvents();
+    LoginPageEvents loginP=new LoginPageEvents();
+
     @Test
-    public void sampleMethodForEnteringCredential()
+    public void loginToWebsite()
     {
-        home.startHereButton();
-        //login.verifyIfLoginPageIsLoaded();
-        waitForElementToBeVisible(By.xpath(LoginPageElements.loginText));
-        login.enterCredential();
+        loginP.login();
     }
 }

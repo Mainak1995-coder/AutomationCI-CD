@@ -29,7 +29,6 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
         extentReports = new ExtentReports();
         extentReports.attachReporter(extentSparkReporter);
         //configuration items to change the look and feel
-        //add content, manage tests etc
         extentSparkReporter.config().setDocumentTitle("Simple Automation Report");
         extentSparkReporter.config().setReportName("Free CRM Project");
         extentSparkReporter.config().setTheme(Theme.STANDARD);

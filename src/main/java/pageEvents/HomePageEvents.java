@@ -5,12 +5,9 @@ import utils.ElementFetch;
 
 public class HomePageEvents {
     ElementFetch ele=new ElementFetch();
-    public void startHereButton()
+
+    public void registerButton()
     {
-        ele.getWebElement("XPATH", HomePageElements.startHereButtonText).click();
-    }
-    public void signUpButton()
-    {
-        ele.getWebElement("XPATH", HomePageElements.signUpButtonText).click();
+        ele.getWebElement("XPATH", HomePageElements.registerButton).click();
     }
 }
