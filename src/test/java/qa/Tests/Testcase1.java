@@ -10,12 +10,11 @@ import pageObjects.LoginPageElements;
 import utils.ElementFetch;
 
 public class Testcase1 extends BaseTest {
-    ElementFetch ele=new ElementFetch();
     LoginPageEvents loginP=new LoginPageEvents();
 
-    @Test
-    public void loginToWebsite()
-    {
-        loginP.login();
+    @Test(dataProvider = "loginData",dataProviderClass = LoginPageEvents.class)
+    public void loginToWebsite(String username,String password) throws InterruptedException {
+        loginP.login(username, password);
+
     }
 }

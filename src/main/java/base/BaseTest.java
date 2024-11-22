@@ -1,9 +1,5 @@
 package base;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,17 +7,15 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
-import org.testng.Reporter;
 import org.testng.annotations.*;
 import utils.Constants;
 
-import java.lang.reflect.Method;
 import java.time.Duration;
 
 public class BaseTest {
     public static  WebDriver driver;
     WebDriverWait wait;
+
 
     @BeforeMethod
     @Parameters("browser")
@@ -31,8 +25,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get(Constants.url);
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-
+        WebDriverWait  wait=new WebDriverWait(driver,Duration.ofSeconds(10));
     }
     @AfterMethod
     public void tearDown()
