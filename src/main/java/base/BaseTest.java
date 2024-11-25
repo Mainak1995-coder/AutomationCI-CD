@@ -16,7 +16,6 @@ public class BaseTest {
     public static  WebDriver driver;
     WebDriverWait wait;
 
-
     @BeforeMethod
     @Parameters("browser")
     public void browserInvoke(String browser)
