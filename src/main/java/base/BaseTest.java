@@ -18,7 +18,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void browserInvoke(String browser)
+    public void browserInvoke(@Optional("chrome") String browser)
     {
         setupDriver(browser);
         driver.manage().window().maximize();
